@@ -6,7 +6,7 @@ public record CreateProductCommand(string Name, List<string> Category, string De
     : ICommand<CreateProductResult>;
 public record CreateProductResult(Guid Id);
 
-public class CreateProductCommandValidator:AbstractValidator<CreateProductCommand>
+public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
 {
     public CreateProductCommandValidator()
     {
@@ -18,7 +18,7 @@ public class CreateProductCommandValidator:AbstractValidator<CreateProductComman
 }
 
 
-internal class CreateProductCommandHandler(IDocumentSession session) : 
+internal class CreateProductCommandHandler(IDocumentSession session) :
     ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
